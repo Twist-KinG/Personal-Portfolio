@@ -1,11 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "./ThemeContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -17,13 +15,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+    <nav className="fixed top-0 left-0 w-full bg-gray-800 shadow-md z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        {/* Logo */}
         <h1
-          className="text-xl font-bold cursor-pointer"
-          onClick={() => navigate("/")}
-        >
-          YourName
+          className="text-xl font-bold cursor-pointer text-white"
+          onClick={() => navigate("/")}>
+          DeepAskLight
         </h1>
 
         {/* Desktop Menu */}
@@ -31,104 +29,48 @@ export default function Navbar() {
           {navItems.map((item) => (
             <li
               key={item.path}
-              className="cursor-pointer hover:text-blue-500"
+              className="cursor-pointer text-gray-100 hover:text-blue-400 transition-colors duration-300"
               onClick={() => navigate(item.path)}
             >
               {item.label}
             </li>
           ))}
-          {/* Theme Toggle Button */}
-          <li>
-            <button
-              onClick={toggleTheme}
-              className="ml-4 w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 relative overflow-hidden"
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                {theme === "light" ? (
-                  <motion.span
-                    key="moon"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    🌙
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="sun"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    ☀️
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
-          </li>
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger Button */}
         <button
-          className="md:hidden text-2xl"
+          className="md:hidden text-gray-100 text-2xl"
           onClick={() => setOpen(!open)}
         >
           ☰
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
-      {open && (
-        <ul className="md:hidden bg-white dark:bg-gray-800 shadow-md flex flex-col items-center py-4 space-y-4 font-medium">
-          {navItems.map((item) => (
-            <li
-              key={item.path}
-              className="cursor-pointer hover:text-blue-500"
-              onClick={() => {
-                navigate(item.path);
-                setOpen(false);
-              }}
-            >
-              {item.label}
-            </li>
-          ))}
-          <li>
-            <button
-              onClick={() => {
-                toggleTheme();
-                setOpen(false);
-              }}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 relative overflow-hidden"
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                {theme === "light" ? (
-                  <motion.span
-                    key="moon-mobile"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    🌙
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="sun-mobile"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    ☀️
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
-          </li>
-        </ul>
-      )}
+      {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-gray-800 flex flex-col items-center py-4 space-y-4 font-medium"
+          >
+            {navItems.map((item) => (
+              <li
+                key={item.path}
+                className="cursor-pointer text-gray-100 hover:text-blue-400 transition-colors duration-300"
+                onClick={() => {
+                  navigate(item.path);
+                  setOpen(false);
+                }}
+              >
+                {item.label}
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
