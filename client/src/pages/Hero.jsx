@@ -143,7 +143,6 @@ export default function Hero() {
         </div>
       </div>
 
-      
 
       {/* Additional Sections Below Hero */}
       <div className="w-full mt-12 md:mt-24 px-6 md:px-20 flex flex-col gap-12 ">
@@ -163,6 +162,8 @@ export default function Hero() {
             <p className="text-gray-300 text-sm">Total YouTube views</p>
           </div>
         </div>
+
+        
 
         <div>
           more to gooooo
