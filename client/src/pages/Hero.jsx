@@ -191,11 +191,11 @@ export default function Hero() {
         {/* About section imported */}
         <About />
 
-        {/* Contact section imported */}
-        <Contact />
-
         {/* Projects section imported */}
         <Projects />
+
+        {/* Contact section imported */}
+        <Contact />
 
       </div>
 
