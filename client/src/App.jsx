@@ -12,11 +12,17 @@ export default function App() {
     <Router>
       <Layout>
         <Routes>
+
           <Route path="/" element={<Hero />} />
+
           <Route path="/about" element={<About />} />
+
           {/* <Route path="/skills" element={<Skills />} /> */}
+
           <Route path="/projects" element={<Projects />} />
+
           <Route path="/contact" element={<Contact />} />
+          
         </Routes>
       </Layout>
     </Router>
