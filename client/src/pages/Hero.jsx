@@ -61,9 +61,9 @@ export default function Hero() {
     <section className="bg-gray-900 text-gray-100 min-h-screen flex flex-col justify-center items-center mt-14 px-6 py-12 md:py-0">
 
       {/* Main Hero Section */}
-      <div className="flex flex-col md:flex-row w-full justify-center items-center md:items-start gap-12">
+      <div className="flex flex-col-reverse md:flex-row w-full justify-center items-center md:items-start gap-12">
 
-        {/* Left Side */}
+        {/* Left Side - Text */}
         <div className="md:w-1/2 flex flex-col justify-center text-center md:text-left space-y-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
             Hi, I’m Dipesh Thing 👋
@@ -84,7 +84,6 @@ export default function Hero() {
             {skills.map((skill) => (
               <button
                 key={skill}
-                // onClick={() => navigate("/skills")}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm transition duration-300"
               >
                 {skill}
@@ -107,13 +106,19 @@ export default function Hero() {
 
           {/* Main CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <a
+              href="/projects"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base"
+            >
+              View Projects
+            </a>
 
-            <a href="/projects"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base">View Projects</a>
-
-            <a href="/contact"
-              className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base">Contact Me</a>
-
+            <a
+              href="/contact"
+              className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base"
+            >
+              Contact Me
+            </a>
           </div>
 
           {/* Invitation text */}
@@ -122,7 +127,7 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Right Side - Animated Border Photo */}
+        {/* Right Side - Photo */}
         <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
           <div className="relative w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 flex items-center justify-center">
             {/* Rotating gradient border */}
@@ -141,6 +146,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
 
       
       {/* Additional Sections Below Hero */}
@@ -198,7 +204,6 @@ export default function Hero() {
         <Contact />
 
       </div>
-
 
       {/* Inline styles for animation */}
       <style>

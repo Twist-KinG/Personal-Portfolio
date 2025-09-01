@@ -38,9 +38,8 @@ export default function Projects() {
 
   return (
     <section
-      className="max-w-6xl mx-auto px-6 py-16 bg-gray-900 text-gray-100"
-      id="projects"
-    >
+      className="max-w-6xl mx-auto px-6 bg-gray-900 text-gray-100"
+      id="projects">
       <h2 className="text-4xl font-bold mb-12 text-center">🚀 Projects</h2>
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
