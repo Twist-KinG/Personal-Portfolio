@@ -1,6 +1,10 @@
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import About from "./About";
+import Contact from "./Contact";
+import Projects from "./Projects";
+import { FaBriefcase, FaCode, FaHeart, FaGlobe } from "react-icons/fa";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -54,7 +58,7 @@ export default function Hero() {
   }, [displayText, isDeleting, currentIndex]);
 
   return (
-    <section className="bg-gray-900 text-gray-100 min-h-screen flex flex-col justify-center items-center px-6 py-12 md:py-0">
+    <section className="bg-gray-900 text-gray-100 min-h-screen flex flex-col justify-center items-center mt-14 px-6 py-12 md:py-0">
 
       {/* Main Hero Section */}
       <div className="flex flex-col md:flex-row w-full justify-center items-center md:items-start gap-12">
@@ -103,18 +107,13 @@ export default function Hero() {
 
           {/* Main CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <a
-              href="/projects"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base"
-            >
-              View Projects
-            </a>
-            <a
-              href="/contact"
-              className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base"
-            >
-              Contact Me
-            </a>
+
+            <a href="/projects"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base">View Projects</a>
+
+            <a href="/contact"
+              className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded shadow-md transition duration-300 text-sm sm:text-base">Contact Me</a>
+
           </div>
 
           {/* Invitation text */}
@@ -143,35 +142,63 @@ export default function Hero() {
         </div>
       </div>
 
-
+      
       {/* Additional Sections Below Hero */}
       <div className="w-full mt-12 md:mt-24 px-6 md:px-20 flex flex-col gap-12 ">
 
-        {/* Achievements */}
-        <div className="flex flex-col md:flex-row justify-around items-center gap-6">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-500">6 Months</h2>
-            <p className="text-gray-300 text-sm">Average time to land your first developer job</p>
-          </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-green-500">7,000,000+</h2>
-            <p className="text-gray-300 text-sm">Students trained globally</p>
-          </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-yellow-400">1B+</h2>
-            <p className="text-gray-300 text-sm">Total YouTube views</p>
-          </div>
-        </div>
-
         
+        {/* Achievements */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-12">
 
-        <div>
-          more to gooooo
+          {/* Experience */}
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+            <FaBriefcase className="w-10 h-10 text-blue-500 mx-auto mb-4 transform transition-transform duration-300 hover:scale-125 hover:rotate-12" />
+            <h2 className="text-2xl font-bold text-blue-500">2+ Years</h2>
+            <p className="text-gray-300 text-sm mt-2">
+              Building scalable web apps with MERN stack & modern tools.
+            </p>
+          </div>
 
+          {/* Projects */}
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+            <FaCode className="w-10 h-10 text-green-500 mx-auto mb-4 transform transition-transform duration-300 hover:scale-125 hover:rotate-12" />
+            <h2 className="text-2xl font-bold text-green-500">10+ Projects</h2>
+            <p className="text-gray-300 text-sm mt-2">
+              Delivered EMS, Doctor Booking, educational platforms and more with clean code.
+            </p>
+          </div>
+
+          {/* Dedication */}
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+            <FaHeart className="w-10 h-10 text-yellow-400 mx-auto mb-4 transform transition-transform duration-300 hover:scale-125 hover:rotate-12 animate-pulse" />
+            <h2 className="text-2xl font-bold text-yellow-400">100% Dedication</h2>
+            <p className="text-gray-300 text-sm mt-2">
+              Passionate about creating user-first designs & seamless UX.
+            </p>
+          </div>
+
+          {/* Open Source */}
+          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+            <FaGlobe className="w-10 h-10 text-purple-500 mx-auto mb-4 transform transition-transform duration-300 hover:scale-125 hover:rotate-12 animate-spin-slow" />
+            <h2 className="text-2xl font-bold text-purple-500">Open Source</h2>
+            <p className="text-gray-300 text-sm mt-2">
+              Sharing knowledge & contributing to the dev community worldwide.
+            </p>
+          </div>
         </div>
-  
-      
+
+
+        {/* About section imported */}
+        <About />
+
+        {/* Contact section imported */}
+        <Contact />
+
+        {/* Projects section imported */}
+        <Projects />
+
       </div>
+
 
       {/* Inline styles for animation */}
       <style>
@@ -192,7 +219,16 @@ export default function Hero() {
           .animate-gradient {
             animation: gradient-move 5s ease infinite;
           }
-        `}
+
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 8s linear infinite;
+    }
+  `}
       </style>
 
     </section>
