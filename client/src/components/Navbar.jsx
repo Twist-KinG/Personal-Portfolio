@@ -46,6 +46,7 @@ export default function Navbar() {
         </button>
       </div>
 
+      
       {/* Mobile Dropdown Menu */}
       <AnimatePresence>
         {open && (
@@ -68,9 +69,12 @@ export default function Navbar() {
                 {item.label}
               </li>
             ))}
+            
           </motion.ul>
+
         )}
       </AnimatePresence>
+
     </nav>
   );
 }

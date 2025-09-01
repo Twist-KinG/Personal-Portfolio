@@ -6,8 +6,8 @@ const projects = [
   {
     title: "EMS System",
     desc: "Manage employees, salaries & leaves efficiently.",
-    img: "src/assets/img/ems.png", // main card image
-    preview: "src/assets/img/ems_preview.png", // small preview image
+    img: "src/assets/img/ems.png",
+    preview: "src/assets/img/ems_preview.png", 
     details: "/projects/ems",
     live: "https://ems-system.vercel.app",
   },

@@ -168,22 +168,6 @@ export default function Hero() {
         <div>
           more to gooooo
 
-
-          {/* Achievements */}
-          <div className="flex flex-col md:flex-row justify-around items-center gap-6">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-blue-500">6 Months</h2>
-              <p className="text-gray-300 text-sm">Average time to land your first developer job</p>
-            </div>
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-green-500">7,000,000+</h2>
-              <p className="text-gray-300 text-sm">Students trained globally</p>
-            </div>
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-yellow-400">1B+</h2>
-              <p className="text-gray-300 text-sm">Total YouTube views</p>
-            </div>
-          </div>
         </div>
   
       
