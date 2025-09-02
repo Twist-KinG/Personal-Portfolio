@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaBriefcase, FaCode, FaHeart, FaGlobe } from "react-icons/fa";
 import { motion } from "framer-motion";
+import photo from "../assets/img/photo.jpeg"; // import properly
 
 export default function Hero() {
   const professions = [
@@ -18,6 +19,7 @@ export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+
   const typingSpeed = 50;
   const deletingSpeed = 50;
   const delay = 1500;
@@ -27,11 +29,9 @@ export default function Hero() {
 
     const handleTyping = () => {
       const fullText = professions[currentIndex];
-      if (isDeleting) {
-        setDisplayText(fullText.substring(0, displayText.length - 1));
-      } else {
-        setDisplayText(fullText.substring(0, displayText.length + 1));
-      }
+      setDisplayText(prev =>
+        isDeleting ? fullText.substring(0, prev.length - 1) : fullText.substring(0, prev.length + 1)
+      );
 
       if (!isDeleting && displayText === fullText) {
         timeout = setTimeout(() => setIsDeleting(true), delay);
@@ -53,8 +53,8 @@ export default function Hero() {
 
   return (
     <section id="hero" className="bg-gray-900 text-gray-100 min-h-screen flex flex-col justify-center items-center mt-14 px-6 py-12 md:py-0">
-      <div className="flex flex-col-reverse md:flex-row w-full justify-center items-center md:items-start gap-12">
-        {/* Left Side */}
+      <div className="max-w-7xl w-full flex flex-col-reverse md:flex-row justify-center items-center md:items-start gap-12">
+        {/* Left */}
         <div className="md:w-1/2 flex flex-col justify-center text-center md:text-left space-y-4">
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl font-bold"
@@ -64,6 +64,7 @@ export default function Hero() {
           >
             Hi, I’m Dipesh Thing 👋
           </motion.h1>
+
           <motion.h2
             className="text-xl sm:text-2xl md:text-3xl font-semibold h-10 text-blue-500"
             initial={{ opacity: 0, x: -30 }}
@@ -73,6 +74,7 @@ export default function Hero() {
             {displayText}
             <span className="border-r-2 border-red-500 ml-1 animate-pulse"></span>
           </motion.h2>
+
           <motion.p
             className="text-gray-400 max-w-md leading-relaxed text-sm sm:text-base md:text-lg"
             initial={{ opacity: 0 }}
@@ -90,7 +92,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             {skills.map((skill) => (
-              <button key={skill} className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm transition duration-300">
+              <button
+                key={skill}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm transition duration-300"
+              >
                 {skill}
               </button>
             ))}
@@ -145,7 +150,7 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Right Side */}
+        {/* Right */}
         <motion.div
           className="md:w-1/2 flex justify-center mt-8 md:mt-0"
           initial={{ opacity: 0, x: 50 }}
@@ -157,14 +162,14 @@ export default function Hero() {
               <div className="w-full h-full rounded-full bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 blur-xl animate-gradient bg-[length:200%_200%]"></div>
             </div>
             <div className="relative w-52 sm:w-64 md:w-72 h-52 sm:h-64 md:h-72 rounded-full overflow-hidden bg-gray-900 border-4 border-gray-900">
-              <img src="src/assets/img/photo.jpeg" alt="Dipesh Thing" className="w-full h-full object-cover rounded-full" />
+              <img src={photo} alt="Dipesh Thing" className="w-full h-full object-cover rounded-full" />
             </div>
           </div>
         </motion.div>
       </div>
 
       {/* Achievements */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-12">
+      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-12">
         {[
           { icon: FaBriefcase, title: "2+ Years", text: "Building scalable web apps with MERN stack.", color: "text-blue-500" },
           { icon: FaCode, title: "10+ Projects", text: "Delivered EMS, LMS, educational platforms.", color: "text-green-500" },

@@ -1,3 +1,4 @@
+// Footer.jsx
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
@@ -17,13 +18,12 @@ export default function Footer() {
   ];
 
   const handleNavClick = (id) => {
-    const element = document.getElementById(id);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <footer className="bg-gray-800 text-gray-100 pt-12 pb-6 relative">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-gray-800 text-gray-100 pt-12 pb-6">
+      <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
 
         {/* About */}
         <div className="space-y-4">
@@ -74,7 +74,6 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-
       </div>
     </footer>
   );
