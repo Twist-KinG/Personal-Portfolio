@@ -34,8 +34,7 @@ export default function Navbar() {
         {/* Logo */}
         <h1
           className="text-xl font-bold text-white cursor-pointer hover:text-blue-400"
-          onClick={() => scrollToSection("hero")}
-        >
+          onClick={() => scrollToSection("hero")}>
           DeepAskLight
         </h1>
 
@@ -45,8 +44,7 @@ export default function Navbar() {
             <li
               key={item.id}
               className="text-gray-100 cursor-pointer hover:text-blue-400"
-              onClick={() => scrollToSection(item.id)}
-            >
+              onClick={() => scrollToSection(item.id)}>
               {item.label}
             </li>
           ))}
@@ -55,8 +53,7 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           className="md:hidden fixed top-4 right-12 text-white text-2xl z-50 focus:outline-none"
-          onClick={() => setOpen(!open)}
-        >
+          onClick={() => setOpen(!open)}>
           {open ? "✕" : "☰"}
         </button>
       </div>
@@ -64,25 +61,27 @@ export default function Navbar() {
       {/* Mobile Menu with Framer Motion */}
       <AnimatePresence>
         {open && (
+          
           <motion.div
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="md:hidden fixed top-16 right-0 w-56 sm:w-64 h-full bg-gray-800 z-40 flex flex-col items-center pt-6 space-y-6 shadow-lg"
-          >
+            className="md:hidden fixed top-16 right-0 w-56 sm:w-64 h-full bg-gray-800 z-40 flex flex-col items-center pt-6 space-y-6 shadow-lg">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 className="text-gray-100 text-lg font-medium hover:text-blue-400"
-                onClick={() => scrollToSection(item.id)}
-              >
+                onClick={() => scrollToSection(item.id)}>
                 {item.label}
               </button>
+
             ))}
           </motion.div>
+
         )}
       </AnimatePresence>
+
     </nav>
   );
 }
