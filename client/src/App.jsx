@@ -8,11 +8,18 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   return (
+    
     <Layout>
+
       <Hero />
+
       <About />
+
       <Projects />
+
       <Contact />
+
     </Layout>
+    
   );
 }
