@@ -41,11 +41,11 @@ export default function Footer() {
           <h4 className="text-lg font-semibold text-white">Quick Links</h4>
           <ul className="space-y-2 text-gray-300 text-sm">
             {navItems.map((item) => (
+              
               <li
                 key={item.id}
                 className="cursor-pointer hover:text-blue-400 transition-colors duration-300"
-                onClick={() => handleNavClick(item.id)}
-              >
+                onClick={() => handleNavClick(item.id)}>
                 {item.label}
               </li>
             ))}
@@ -57,11 +57,12 @@ export default function Footer() {
           <h4 className="text-lg font-semibold text-white">Follow Me</h4>
           <ul className="space-y-2 text-gray-300 text-sm">
             {socialLinks.map((link, index) => (
+
               <li
                 key={index}
-                className="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300"
-              >
+                className="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300">
                 <span className="text-lg">{link.icon}</span>
+
                 <a
                   href={link.url}
                   target={link.label === "Email" ? "_self" : "_blank"}
@@ -73,8 +74,11 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+
         </div>
+
       </div>
+
     </footer>
   );
 }
