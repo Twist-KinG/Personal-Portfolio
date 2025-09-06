@@ -6,7 +6,9 @@ import "./index.css"; // Tailwind CSS and custom styles
 ReactDOM.createRoot(document.getElementById("root")).render(
 
   <React.StrictMode>
+
     <App />
+    
   </React.StrictMode>
 
 );
