@@ -10,15 +10,10 @@ export default function App() {
   return (
     
     <Layout>
-
       <Hero />
-
       <About />
-
       <Projects />
-
       <Contact />
-
     </Layout>
     
   );
