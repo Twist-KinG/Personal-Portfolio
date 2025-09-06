@@ -109,7 +109,11 @@ export default function Contact() {
           </button>
 
         </motion.form>
+
       </div>
+
     </section>
+
   );
+  
 }
