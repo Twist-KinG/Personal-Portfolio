@@ -179,6 +179,7 @@ export default function Hero() {
 
       {/* Achievements */}
       <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-12">
+        
         {[
           { icon: FaBriefcase, title: "2+ Years", text: "Building scalable web apps with MERN stack.", color: "text-blue-500" },
           { icon: FaCode, title: "10+ Projects", text: "Delivered EMS, LMS, educational platforms.", color: "text-green-500" },
@@ -215,4 +216,5 @@ export default function Hero() {
     </section>
 
   );
+
 }
