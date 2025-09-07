@@ -160,9 +160,7 @@ export default function Hero() {
           <div className="relative w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 flex items-center justify-center">
 
             <div className="absolute inset-0 rounded-full p-1 animate-spin-slow">
-
               <div className="w-full h-full rounded-full bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 blur-xl animate-gradient bg-[length:200%_200%]"></div>
-
             </div>
 
             <div className="relative w-52 sm:w-64 md:w-72 h-52 sm:h-64 md:h-72 rounded-full overflow-hidden bg-gray-900 border-4 border-gray-900">
