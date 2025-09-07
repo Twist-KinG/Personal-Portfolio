@@ -82,9 +82,7 @@ export default function Projects() {
                     onClick={() => window.open(project.github, "_blank")}
                     className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 transition"
                     title="Source Code">
-                    
                     <FiCode size={20} />
-
                   </button>
 
                 </div>
