@@ -75,10 +75,8 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}>
                 {item.label}
               </button>
-
             ))}
           </motion.div>
-
         )}
       </AnimatePresence>
 
