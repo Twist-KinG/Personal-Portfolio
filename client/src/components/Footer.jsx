@@ -28,12 +28,15 @@ export default function Footer() {
         {/* About */}
         <div className="space-y-4">
           <h3 className="text-2xl font-bold text-white">Dipesh Thing</h3>
+
           <p className="text-gray-300 text-sm leading-relaxed">
             Passionate Full-Stack Developer creating modern, responsive, and user-friendly web experiences.
           </p>
+
           <p className="text-gray-400 text-xs mt-4">
             &copy; {new Date().getFullYear()} Dipesh Thing. All rights reserved.
           </p>
+          
         </div>
 
         {/* Quick Links */}
